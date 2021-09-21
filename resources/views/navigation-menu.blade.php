@@ -8,9 +8,7 @@
                     <a href="{{ route('dashboard') }}">
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
-                </div>
-                    nooo
-                <div>  
+                
                 </div>
 
                 <!-- Navigation Links -->
