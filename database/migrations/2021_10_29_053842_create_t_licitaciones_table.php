@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTVendedoresTable extends Migration
+class CreateTLicitacionesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateTVendedoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('t_vendedores', function (Blueprint $table) {
+        Schema::create('t_licitaciones', function (Blueprint $table) {
             $table->id();
-            $table->string('Nombre_Apellido');
-            $table->integer('DNI')->unique();
-            $table->integer('Monto_Fijo');
+            $table->integer('monto');
             $table->timestamps();
+            $table->integer('id_cuenta');
+            $table->foreign('id_cuenta')->references('id')->on('t_cuentas');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateTVendedoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_vendedores');
+        Schema::dropIfExists('t_licitaciones');
     }
 }
