@@ -16,7 +16,7 @@ class CreateTClientesTable extends Migration
         Schema::create('t_clientes', function (Blueprint $table) {
             $table->id();
             $table->integer('DNI')->unique();
-            $table->string('NombreYApellido');
+            $table->string('Nombre_Apellido');
             $table->string('Direccion');
             $table->string('Localidad');
             $table->string('Provincia');

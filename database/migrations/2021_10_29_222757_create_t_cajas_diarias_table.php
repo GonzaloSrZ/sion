@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTAsistenciasTable extends Migration
+class CreateTCajasDiariasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateTAsistenciasTable extends Migration
      */
     public function up()
     {
-        Schema::create('t_asistencias', function (Blueprint $table) {
+        Schema::create('t_cajas_diarias', function (Blueprint $table) {
             $table->id();
-            $table->integer('DNI')->unique();
-            $table->string('Nombre_Apellido'); // id del vendedor/cobrador??
-            $table->time('Hora_Ingreso');
+            $table->string('descripcion');
+            $table->integer('monto');
+            $table->string('tipo');
+            $table->string('pago');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +30,6 @@ class CreateTAsistenciasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_asistencias');
+        Schema::dropIfExists('t_cajas_diarias');
     }
 }
