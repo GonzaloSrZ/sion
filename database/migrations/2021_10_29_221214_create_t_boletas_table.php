@@ -28,9 +28,9 @@ class CreateTBoletasTable extends Migration
             $table->dateTime('Fecha_P');
             $table->String('L_Pago');
             $table->timestamps();
-            $table->integer('id_cliente');
+            $table->unsignedBigInteger('id_cliente');
             $table->foreign('id_cliente')->references('id')->on('t_clientes');
-            $table->integer('id_cuenta');
+            $table->unsignedBigInteger('id_cuenta');
             $table->foreign('id_cuenta')->references('id')->on('t_cuentas');
         });
     }

@@ -17,7 +17,7 @@ class CreateTLocalidadesTable extends Migration
             $table->id();
             $table->string('localidad');
             $table->timestamps();
-            $table->integer('id_cobrador');
+            $table->unsignedBigInteger('id_cobrador');
             $table->foreign('id_cobrador')->references('id')->on('t_cobradores');
         });
     }
