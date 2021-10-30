@@ -15,23 +15,17 @@ class CreateTBoletasTable extends Migration
     {
         Schema::create('t_boletas', function (Blueprint $table) {
             $table->id();
-            $table->integer('Codigo');
-            $table->string('Socio');
-            $table->string('Provincia');
-            $table->string('Direccion');
-            $table->string('Vencimiento');
-            $table->string('Plan');
-            $table->integer('P_Cuota');
-            $table->integer('C_Cuotas');
-            $table->integer('N_Cuota');
-            $table->string('Situacion');
-            $table->dateTime('Fecha_P');
-            $table->String('L_Pago');
+            $table->integer('codigo');
+            $table->string('socio');
+            $table->string('vencimiento');
+            $table->integer('cuota');
+            $table->string('situacion');
+            $table->String('tipo_pago');
             $table->timestamps();
-            $table->unsignedBigInteger('id_cliente');
-            $table->foreign('id_cliente')->references('id')->on('t_clientes');
             $table->unsignedBigInteger('id_cuenta');
             $table->foreign('id_cuenta')->references('id')->on('t_cuentas');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users');
         });
     }
 

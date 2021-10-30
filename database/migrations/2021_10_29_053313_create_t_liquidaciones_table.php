@@ -19,6 +19,8 @@ class CreateTLiquidacionesTable extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('id_vendedor');
             $table->foreign('id_vendedor')->references('id')->on('t_vendedores');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users');
         });
     }
 
