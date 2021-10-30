@@ -15,10 +15,12 @@ class CreateTProductosTable extends Migration
     {
         Schema::create('t_productos', function (Blueprint $table) {
             $table->id();
-            $table->string('Nombre')->unique();
-            $table->float('Precio_Contado');
-            $table->float('Precio_Cuotas');
+            $table->string('nombre')->unique();
+            $table->float('precio_contado');
+            $table->float('precio_cuotas');
             $table->timestamps();
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users');
         });
     }
 

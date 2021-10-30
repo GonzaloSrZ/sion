@@ -15,9 +15,9 @@ class CreateTVendedoresTable extends Migration
     {
         Schema::create('t_vendedores', function (Blueprint $table) {
             $table->id();
-            $table->string('Nombre_Apellido');
-            $table->integer('DNI')->unique();
-            $table->integer('Monto_Fijo');
+            $table->string('nombre_apellido');
+            $table->integer('dni')->unique();
+            $table->integer('monto_fijo');
             $table->timestamps();
         });
     }

@@ -19,6 +19,8 @@ class CreateTLicitacionesTable extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('id_cuenta');
             $table->foreign('id_cuenta')->references('id')->on('t_cuentas');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users');
         });
     }
 

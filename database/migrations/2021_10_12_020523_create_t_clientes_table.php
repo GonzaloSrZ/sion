@@ -15,14 +15,16 @@ class CreateTClientesTable extends Migration
     {
         Schema::create('t_clientes', function (Blueprint $table) {
             $table->id();
-            $table->integer('DNI')->unique();
-            $table->string('Nombre_Apellido');
-            $table->string('Direccion');
-            $table->string('Localidad');
-            $table->string('Provincia');
-            $table->string('Telefono_1');
-            $table->string('Telefono_2')->nullable();
+            $table->integer('dni')->unique();
+            $table->string('nombre_apellido');
+            $table->string('direccion');
+            $table->string('localidad');
+            $table->string('provincia');
+            $table->string('telefono_1');
+            $table->string('telefono_2')->nullable();
             $table->timestamps();
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users');
         });
     }
 

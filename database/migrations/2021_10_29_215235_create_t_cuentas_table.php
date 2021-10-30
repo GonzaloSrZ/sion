@@ -15,19 +15,18 @@ class CreateTCuentasTable extends Migration
     {
         Schema::create('t_cuentas', function (Blueprint $table) {
             $table->id();
-            $table->string('Plan');
-            $table->integer('Grupo');
-            $table->integer('N_Sorteo1');
-            $table->integer('N_Sorteo2');
-            $table->integer('N_Sorteo3');
-            $table->integer('N_Sorteo4');
-            $table->integer('C_Cuotas');
-            $table->string('P_Cuotas');
-            $table->string('Entrega');
-            $table->integer('Precio_Total');
-            $table->string('Vencimiento');
-            $table->integer('N_Cuotas');
-            $table->string('Situacion');
+            $table->integer('grupo');
+            $table->integer('n_sorteo1');
+            $table->integer('n_sorteo2');
+            $table->integer('n_sorteo3');
+            $table->integer('n_sorteo4');
+            $table->integer('c_cuotas');
+            $table->integer('p_cuotas');
+            $table->integer('entrega');
+            $table->integer('precio_total');
+            $table->string('vencimiento');
+            $table->integer('n_cuotas');
+            $table->string('situacion');
             $table->unsignedBigInteger('id_cliente');
             $table->foreign('id_cliente')->references('id')->on('t_clientes');
             $table->unsignedBigInteger('id_producto');
@@ -36,6 +35,8 @@ class CreateTCuentasTable extends Migration
             $table->foreign('id_vendedor')->references('id')->on('t_vendedores');
             $table->unsignedBigInteger('id_cobrador');
             $table->foreign('id_cobrador')->references('id')->on('t_cobradores');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users');
             $table->timestamps();
         });
     }

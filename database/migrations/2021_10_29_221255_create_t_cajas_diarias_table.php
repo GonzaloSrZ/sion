@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTCajasMensualesTable extends Migration
+class CreateTCajasDiariasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class CreateTCajasMensualesTable extends Migration
      */
     public function up()
     {
-        Schema::create('t_cajas_mensuales', function (Blueprint $table) {
+        Schema::create('t_cajas_diarias', function (Blueprint $table) {
             $table->id();
-            $table->integer('efectivo');
-            $table->integer('transferencias');
-            $table->integer('extras');
-            $table->integer('egreso');
+            $table->integer('i_transf');
+            $table->integer('i_efectivo');
+            $table->integer('i_ext');
+            $table->integer('egresos');
             $table->integer('total');
             $table->integer('total_neto');
-            $table->string('tipo');
             $table->timestamps();
+            $table->unsignedBigInteger('id_caja_mensual');
+            $table->foreign('id_caja_mensual')->references('id')->on('t_cajas_mensuales');
         });
     }
 
@@ -33,6 +34,6 @@ class CreateTCajasMensualesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_cajas_mensuales');
+        Schema::dropIfExists('t_cajas_diarias');
     }
 }

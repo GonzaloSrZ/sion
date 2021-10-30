@@ -15,8 +15,8 @@ class CreateTCobradoresTable extends Migration
     {
         Schema::create('t_cobradores', function (Blueprint $table) {
             $table->id();
-            $table->integer('DNI')->unique();
-            $table->string('Nombre_Cobrador');
+            $table->integer('dni')->unique();
+            $table->string('nombre_cobrador');
             $table->timestamps();
         });
     }
