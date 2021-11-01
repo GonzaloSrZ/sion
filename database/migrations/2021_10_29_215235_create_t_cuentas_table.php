@@ -16,10 +16,10 @@ class CreateTCuentasTable extends Migration
         Schema::create('t_cuentas', function (Blueprint $table) {
             $table->id();
             $table->integer('grupo');
-            $table->integer('n_sorteo1');
-            $table->integer('n_sorteo2');
-            $table->integer('n_sorteo3');
-            $table->integer('n_sorteo4');
+            $table->integer('n_sorteo1')->nullable();
+            $table->integer('n_sorteo2')->nullable();
+            $table->integer('n_sorteo3')->nullable();
+            $table->integer('n_sorteo4')->nullable();
             $table->integer('c_cuotas');
             $table->integer('p_cuotas');
             $table->integer('entrega');

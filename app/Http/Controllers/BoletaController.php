@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\t_boletas;
 use Illuminate\Http\Request;
 
 class BoletaController extends Controller
@@ -13,7 +14,8 @@ class BoletaController extends Controller
      */
     public function index()
     {
-        //
+        $boletas = t_boletas::all();
+        return $boletas;
     }
 
     /**
@@ -34,7 +36,17 @@ class BoletaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $boleta = new t_boletas();
+        $boleta->codigo = $request->get('cod');
+        $boleta->socio = $request->get('socio');
+        $boleta->vencimiento = $request->get('venc');
+        $boleta->cuota = $request->get('cuota');
+        $boleta->situacion = $request->get('sit');
+        $boleta->tipo_pago = $request->get('tipo_pago');
+        $boleta->id_cuenta = $request->get('id_cuenta');
+        $boleta->id_user = $request->get('id_user');
+
+        $boleta->save();
     }
 
     /**
@@ -45,7 +57,8 @@ class BoletaController extends Controller
      */
     public function show($id)
     {
-        //
+        $boleta = t_boletas::find($id);
+        return $boleta;
     }
 
     /**

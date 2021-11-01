@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\t_asistencias;
 use Illuminate\Http\Request;
 
 class AsistenciaController extends Controller
@@ -13,7 +14,8 @@ class AsistenciaController extends Controller
      */
     public function index()
     {
-        //
+        $asistencias = t_asistencias::all();
+        return $asistencias;
     }
 
     /**
@@ -23,7 +25,7 @@ class AsistenciaController extends Controller
      */
     public function create()
     {
-        //
+       
     }
 
     /**
@@ -34,7 +36,10 @@ class AsistenciaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $asistencia = new t_asistencias();
+        $asistencia->id_vendedor = $request->get('id_vendedor');
+
+        $asistencia->save();
     }
 
     /**
@@ -45,7 +50,8 @@ class AsistenciaController extends Controller
      */
     public function show($id)
     {
-        //
+        $asistencia = t_asistencias::find($id);
+        return $asistencia;
     }
 
     /**

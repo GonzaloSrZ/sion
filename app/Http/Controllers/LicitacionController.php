@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\t_licitaciones;
 use Illuminate\Http\Request;
 
 class LicitacionController extends Controller
@@ -13,7 +14,8 @@ class LicitacionController extends Controller
      */
     public function index()
     {
-        //
+        $licitaciones = t_licitaciones::all();
+        return $licitaciones;
     }
 
     /**
@@ -34,7 +36,12 @@ class LicitacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $licitacion = new t_licitaciones();
+        $licitacion->monto = $request->get('monto');
+        $licitacion->id_cuenta = $request->get('id_cuenta');
+        $licitacion->id_user = $request->get('id_user');
+
+        $licitacion->save();
     }
 
     /**
@@ -45,7 +52,8 @@ class LicitacionController extends Controller
      */
     public function show($id)
     {
-        //
+        $licitacion = t_licitaciones::find($id);
+        return $licitacion;
     }
 
     /**
