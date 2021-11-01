@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\t_clientes;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -13,7 +14,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        $clientes = t_clientes::all();
+        return $clientes;
     }
 
     /**
@@ -23,7 +25,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -34,7 +36,17 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cliente = new t_clientes();
+        $cliente->dni = $request->get('dni');
+        $cliente->nombre_apellido = $request->get('nom');
+        $cliente->direccion = $request->get('dir');
+        $cliente->localidad = $request->get('loc');
+        $cliente->provincia = $request->get('prov');
+        $cliente->telefono_1 = $request->get('tel1');
+        $cliente->telefono_2 = $request->get('tel2');
+        $cliente->id_user = $request->get('id_user');
+
+        $cliente->save();
     }
 
     /**
@@ -45,7 +57,8 @@ class ClienteController extends Controller
      */
     public function show($id)
     {
-        //
+        $cliente = t_clientes::find($id);
+        return $cliente;
     }
 
     /**
