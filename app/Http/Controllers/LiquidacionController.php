@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\t_vendedores;
+use App\Models\t_liquidaciones;
 use Illuminate\Http\Request;
 
-class VendedorController extends Controller
+class LiquidacionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class VendedorController extends Controller
      */
     public function index()
     {
-        $vendedores = t_vendedores::all();
-        return $vendedores;
+        $liquidaciones = t_liquidaciones::all();
+        return $liquidaciones;
     }
 
     /**
@@ -36,12 +36,12 @@ class VendedorController extends Controller
      */
     public function store(Request $request)
     {
-        $vendedor = new t_vendedores();
-        $vendedor->dni = $request->get('dni');
-        $vendedor->nombre_apellido = $request->get('nom');
-        $vendedor->monto_fijo = $request->get('monto_fijo');
+        $liquidacion = new t_liquidaciones();
+        $liquidacion->monto = $request->get('monto');
+        $liquidacion->id_vendedor = $request->get('id_vend');
+        $liquidacion->id_user = $request->get('id_user');
 
-        $vendedor->save();
+        $liquidacion->save();
     }
 
     /**
@@ -52,8 +52,8 @@ class VendedorController extends Controller
      */
     public function show($id)
     {
-        $vendedor = t_vendedores::find($id);
-        return $vendedor;
+        $liquidacion = t_liquidaciones::find($id);
+        return $liquidacion;
     }
 
     /**

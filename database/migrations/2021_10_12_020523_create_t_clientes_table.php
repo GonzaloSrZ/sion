@@ -17,10 +17,10 @@ class CreateTClientesTable extends Migration
             $table->id();
             $table->integer('dni')->unique();
             $table->string('nombre_apellido');
-            $table->string('direccion');
-            $table->string('localidad');
-            $table->string('provincia');
-            $table->string('telefono_1');
+            $table->string('direccion')->nullable();
+            $table->string('localidad')->nullable();
+            $table->string('provincia')->nullable();
+            $table->string('telefono_1')->nullable();
             $table->string('telefono_2')->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('id_user');

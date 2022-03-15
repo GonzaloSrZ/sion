@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\t_vendedores;
+use App\Models\t_cobradores;
 use Illuminate\Http\Request;
 
-class VendedorController extends Controller
+class CobradorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class VendedorController extends Controller
      */
     public function index()
     {
-        $vendedores = t_vendedores::all();
-        return $vendedores;
+        $cobradores = t_cobradores::all();
+        return $cobradores;
     }
 
     /**
@@ -36,12 +36,11 @@ class VendedorController extends Controller
      */
     public function store(Request $request)
     {
-        $vendedor = new t_vendedores();
-        $vendedor->dni = $request->get('dni');
-        $vendedor->nombre_apellido = $request->get('nom');
-        $vendedor->monto_fijo = $request->get('monto_fijo');
+        $cobrador = new t_cobradores();
+        $cobrador->dni = $request->get('dni');
+        $cobrador->nombre_apellido = $request->get('nom');
 
-        $vendedor->save();
+        $cobrador->save();
     }
 
     /**
@@ -52,8 +51,8 @@ class VendedorController extends Controller
      */
     public function show($id)
     {
-        $vendedor = t_vendedores::find($id);
-        return $vendedor;
+        $cobrador = t_cobradores::find($id);
+        return $cobrador;
     }
 
     /**

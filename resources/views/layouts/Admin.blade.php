@@ -28,7 +28,9 @@
         @endif
         
         @if (Auth::check())
-        <a href="{{route('logout')}}" class="header_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Cerrar Sesión</span> </a>
+        <form method="POST" action="/logout">
+            <a href="/logout" class="header_link" onclick="event.preventDefault();this.closest('form').submit();"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Cerrar Sesión</span> </a>
+        </form>
         @else
         <a href="login" class="header_link"> <i class='bx bx-log-in nav_icon'></i> <span class="nav_name">Iniciar Sesión</span> </a>
         @endif

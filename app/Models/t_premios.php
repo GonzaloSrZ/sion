@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class t_cobradores extends Model
+class t_premios extends Model
 {
     use HasFactory;
 }

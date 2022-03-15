@@ -15,12 +15,9 @@ class CreateTBoletasTable extends Migration
     {
         Schema::create('t_boletas', function (Blueprint $table) {
             $table->id();
-            $table->integer('codigo');
-            $table->string('socio');
-            $table->string('vencimiento');
-            $table->integer('cuota');
-            $table->string('situacion');
-            $table->String('tipo_pago');
+            $table->integer('interes');
+            $table->integer('num_cuota');
+            $table->string('tipo_pago');
             $table->timestamps();
             $table->unsignedBigInteger('id_cuenta');
             $table->foreign('id_cuenta')->references('id')->on('t_cuentas');

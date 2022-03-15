@@ -16,7 +16,6 @@ class CreateTProductosTable extends Migration
         Schema::create('t_productos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre')->unique();
-            $table->float('precio_contado');
             $table->float('precio_cuotas');
             $table->timestamps();
             $table->unsignedBigInteger('id_user');

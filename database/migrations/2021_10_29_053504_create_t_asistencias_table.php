@@ -15,9 +15,10 @@ class CreateTAsistenciasTable extends Migration
     {
         Schema::create('t_asistencias', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_vendedor');
-            $table->foreign('id_vendedor')->references('id')->on('t_vendedores');
-            $table->time('hora_ingreso');
+            $table->string('tipo');
+            $table->unsignedBigInteger('id_personal');
+            $table->foreign('id_personal')->references('id')->on('t_personals');
+            $table->timestamps();
         });
     }
 

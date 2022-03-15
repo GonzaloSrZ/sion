@@ -20,7 +20,7 @@ class CreateTCajasTable extends Migration
             $table->string('i_e');
             $table->string('tipo_pago');
             $table->timestamps();
-            $table->unsignedBigInteger('id_caja_diaria');
+            $table->unsignedBigInteger('id_caja_diaria')->nullable();
             $table->foreign('id_caja_diaria')->references('id')->on('t_cajas_diarias');
         });
     }

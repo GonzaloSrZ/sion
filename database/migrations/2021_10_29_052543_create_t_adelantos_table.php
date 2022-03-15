@@ -17,8 +17,8 @@ class CreateTAdelantosTable extends Migration
             $table->id();
             $table->integer('monto');
             $table->timestamps();
-            $table->unsignedBigInteger('id_vendedor');
-            $table->foreign('id_vendedor')->references('id')->on('t_vendedores');
+            $table->unsignedBigInteger('id_personal');
+            $table->foreign('id_personal')->references('id')->on('t_personals');
         });
     }
 

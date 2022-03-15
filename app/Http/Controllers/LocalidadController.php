@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\t_vendedores;
+use App\Models\t_localidades;
 use Illuminate\Http\Request;
 
-class VendedorController extends Controller
+class LocalidadController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class VendedorController extends Controller
      */
     public function index()
     {
-        $vendedores = t_vendedores::all();
-        return $vendedores;
+        $localidades = t_localidades::all();
+        return $localidades;
     }
 
     /**
@@ -36,12 +36,11 @@ class VendedorController extends Controller
      */
     public function store(Request $request)
     {
-        $vendedor = new t_vendedores();
-        $vendedor->dni = $request->get('dni');
-        $vendedor->nombre_apellido = $request->get('nom');
-        $vendedor->monto_fijo = $request->get('monto_fijo');
+        $localidad = new t_localidades();
+        $localidad->localidad = $request->get('localidad');
+        $localidad->id_cobrador = $request->get('id_cobr');
 
-        $vendedor->save();
+        $localidad->save();
     }
 
     /**
@@ -52,8 +51,8 @@ class VendedorController extends Controller
      */
     public function show($id)
     {
-        $vendedor = t_vendedores::find($id);
-        return $vendedor;
+        $localidad = t_localidades::find($id);
+        return $localidad;
     }
 
     /**

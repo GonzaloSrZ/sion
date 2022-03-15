@@ -22,7 +22,7 @@ class CreateTCajasDiariasTable extends Migration
             $table->integer('total');
             $table->integer('total_neto');
             $table->timestamps();
-            $table->unsignedBigInteger('id_caja_mensual');
+            $table->unsignedBigInteger('id_caja_mensual')->nullable();
             $table->foreign('id_caja_mensual')->references('id')->on('t_cajas_mensuales');
         });
     }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\t_vendedores;
+use App\Models\t_adelantos;
 use Illuminate\Http\Request;
 
-class VendedorController extends Controller
+class AdelantoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class VendedorController extends Controller
      */
     public function index()
     {
-        $vendedores = t_vendedores::all();
-        return $vendedores;
+        $adelantos = t_adelantos::all();
+        return $adelantos;
     }
 
     /**
@@ -36,10 +36,9 @@ class VendedorController extends Controller
      */
     public function store(Request $request)
     {
-        $vendedor = new t_vendedores();
-        $vendedor->dni = $request->get('dni');
-        $vendedor->nombre_apellido = $request->get('nom');
-        $vendedor->monto_fijo = $request->get('monto_fijo');
+        $vendedor = new t_adelantos();
+        $vendedor->monto = $request->get('monto');
+        $vendedor->id_vendedor = $request->get('id_vendedor');
 
         $vendedor->save();
     }
@@ -52,8 +51,8 @@ class VendedorController extends Controller
      */
     public function show($id)
     {
-        $vendedor = t_vendedores::find($id);
-        return $vendedor;
+        $adelanto = t_adelantos::find($id);
+        return $adelanto;
     }
 
     /**

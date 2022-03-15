@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\t_productos;
 use Illuminate\Http\Request;
 
 class ProductoController extends Controller
@@ -13,7 +14,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        //
+        $productos = t_productos::all();
+        return $productos;
     }
 
     /**
@@ -23,7 +25,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -34,7 +36,13 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $producto = new t_productos();
+        $producto->nombre = $request->get('nom');
+        $producto->precio_contado = $request->get('pre_con');
+        $producto->precio_cuotas = $request->get('pre_cuo');
+        $producto->id_user = $request->get('id_user');
+
+        $producto->save();
     }
 
     /**
@@ -45,7 +53,8 @@ class ProductoController extends Controller
      */
     public function show($id)
     {
-        //
+        $producto = t_productos::find($id);
+        return $producto;
     }
 
     /**
