@@ -18,8 +18,6 @@ class CreateTAsistenciasTable extends Migration
             $table->string('tipo');
             $table->unsignedBigInteger('id_personal');
             $table->foreign('id_personal')->references('id')->on('t_personals');
-            $table->unsignedBigInteger('id_vendedor');
-            $table->foreign('id_vendedor')->references('id')->on('t_vendedores');
             $table->timestamps();
         });
     }
