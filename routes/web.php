@@ -25,3 +25,4 @@ Route::get('/admin', [AdminController::class,'index'])->name('admin.index')
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+

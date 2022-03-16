@@ -16,6 +16,9 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('cuentas.registros.index') }}" :active="request()->routeIs('cuentas.registros.index')">
+                        {{ __('Cuentas') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
@@ -135,6 +138,7 @@
             </div>
         </div>
     </div>
+    
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
