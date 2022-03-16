@@ -17,9 +17,7 @@ class AdminAuth
     public function handle(Request $request, Closure $next)
     {
         if(auth()->check()){
-            if (auth()->user()->rol=='admin'){
-                return $next($request);
-            }
+            return $next($request);
         }
         return redirect()->to('/');
     }
