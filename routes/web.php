@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CuentaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', [AdminController::class,'index'])->name('admin.index')
-->middleware('auth.admin');
+Route::get('/admin', [AdminController::class,'index'])->name('admin.index');
+
+Route::resource('/cuentas/clientes', CuentaController::class)
+->names('cuentas.clientes');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
