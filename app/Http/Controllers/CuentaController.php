@@ -15,7 +15,7 @@ class CuentaController extends Controller
     public function index()
     {
         //$cuentas = t_cuentas::all();
-        return view('cuentas\clientes\index');
+        return view('cuentas\registros\index');
     }
 
     /**
@@ -25,7 +25,7 @@ class CuentaController extends Controller
      */
     public function create()
     {
-        
+        return view('cuentas\registros\create');
     }
 
     /**

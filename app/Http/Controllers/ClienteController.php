@@ -14,8 +14,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $clientes = t_clientes::all();
-        return $clientes;
+        //$clientes = t_clientes::all();
+        return view('cuentas\clientes\index');
     }
 
     /**
@@ -25,7 +25,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        
+        return view('cuentas\clientes\create');
     }
 
     /**

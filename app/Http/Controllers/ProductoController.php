@@ -14,8 +14,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $productos = t_productos::all();
-        return $productos;
+        //$productos = t_productos::all();
+        return view('cuentas\productos\index');
     }
 
     /**
@@ -25,7 +25,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        
+        return view('cuentas\productos\create');
     }
 
     /**

@@ -19,12 +19,25 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('rol');
+            //$table->string('rol');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
         });
+        /* create demo users*/
+        $user = \App\Models\User::factory()->create([
+            'name' => 'Gustavo Coronel',
+            'email' => 'gustavo.coronel27.96@gmail.com',
+            'password' => bcrypt('123456789')
+        ]);
+        $user = \App\Models\User::factory()->create([
+            'name' => 'Gonzalo suarez',
+            'email' => 'gon.srz@gmail.com',
+            'password' => bcrypt('123456789')
+        ]);
+        //$user->assignRole($role1); 
+        //$ususarios = \App\Models\User::factory(9)->create();
     }
 
     /**

@@ -16,6 +16,18 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('cuentas.clientes.index') }}" :active="request()->routeIs('cuentas.clientes.index')">
+                        {{ __('Clientes') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('cuentas.producto.index') }}" :active="request()->routeIs('cuentas.producto.index')">
+                        {{ __('Productos') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('cuentas.registros.index') }}" :active="request()->routeIs('cuentas.registros.index')">
+                        {{ __('Cuentas') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('cuentas.boletas.index') }}" :active="request()->routeIs('cuentas.boletas.index')">
+                        {{ __('Boletas') }}
+                    </x-jet-nav-link>
                     
                 </div>
             </div>

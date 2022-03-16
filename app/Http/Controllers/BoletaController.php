@@ -14,8 +14,8 @@ class BoletaController extends Controller
      */
     public function index()
     {
-        $boletas = t_boletas::all();
-        return $boletas;
+        //$boletas = t_boletas::all();
+        return view('cuentas\boletas\index');
     }
 
     /**
@@ -25,7 +25,7 @@ class BoletaController extends Controller
      */
     public function create()
     {
-        //
+        return view('cuentas\boeletas\create');
     }
 
     /**
